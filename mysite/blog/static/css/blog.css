@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #00FFFF;
+    background-color: #414142;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
     }
@@ -11,8 +11,14 @@
 .content {
     margin-left: 40px;
     }
+
+@font-face {
+    font-family: "SourceCodePro";
+    src: url("../../fonts/Source_Code_Pro/SourceCodePro-Italic.ttf");
+    }
+
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'SourceCodePro';
     }
 .date {
     color: #828282;
