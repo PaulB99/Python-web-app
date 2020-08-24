@@ -1,0 +1,70 @@
+{% load static %}
+<html>
+    <head>
+        <title>My CV</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!--<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    </head>
+    <body>
+        <body>
+            <div class="page-header">
+                <h1><a href="/">My CV</a></h1>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                {% endif %}
+            </div>
+            
+            <div class= "title">
+                <b>
+                    Paul Byrne
+                </b>
+            </div>
+
+            <div>
+                paulbyrne99@rocketmail.com
+            </div>
+
+            <div>
+                Education
+            </div>
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                    {% block education %}
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+                <div>
+                    Experience
+                </div>
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                    {% block experience %}
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                Skills
+            </div>
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                    {% block skills %}
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+            </div>
+            </body>            
+    </body>
+</html>
