@@ -14,6 +14,10 @@ class PageTest(TestCase):
         request = HttpRequest()  
         response = cv_page(request)  
         html = response.content.decode('utf8')  
-        self.assertTrue(html.startswith('<html>'))  
+        self.assertTrue(html.strip().startswith('<html>'))  
         self.assertIn('<title>My CV</title>', html)  
-        self.assertTrue(html.endswith('</html>'))  
+        self.assertTrue(html.strip().endswith('</html>'))
+
+    def test_uses_template(self):
+        response = self.client.get('/cv')
+        self.assertTemplateUsed(response, 'cv_base.html')
