@@ -30,41 +30,22 @@
             <div>
                 Education
             </div>
-            <div class="content container">
-                <div class="row">
-                    <div class="col-md-8">
-                    {% block education %}
-                    {% endblock %}
-                    </div>
-                </div>
-            </div>
+            <form method="POST">
+                <input name="ed_item_text" id="id_new_ed_item" placeholder="New education item" />
+                {% csrf_token %}
+            </form>
+            <table id="ed_list_table">
+                <tr><td>{{ new_ed_item_text }}</td></tr>
+                ​</table>
 
-                <div>
+            <div>
                     Experience
-                </div>
-            <div class="content container">
-                <div class="row">
-                    <div class="col-md-8">
-                    {% block experience %}
-                    {% endblock %}
-                    </div>
-                </div>
             </div>
-
 
             <div>
                 Skills
             </div>
-            <div class="content container">
-                <div class="row">
-                    <div class="col-md-8">
-                    {% block skills %}
-                    {% endblock %}
-                    </div>
-                </div>
-            </div>
-
-            </div>
+            
             </body>            
     </body>
 </html>

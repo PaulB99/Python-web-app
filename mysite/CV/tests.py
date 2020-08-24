@@ -9,15 +9,12 @@ class PageTest(TestCase):
      #   found = resolve('/cv')  
       #  self.assertEqual(found.func, cv_page) 
     
-
-    def test_page_returns_correct_html(self):
-        request = HttpRequest()  
-        response = cv_page(request)  
-        html = response.content.decode('utf8')  
-        self.assertTrue(html.strip().startswith('<html>'))  
-        self.assertIn('<title>My CV</title>', html)  
-        self.assertTrue(html.strip().endswith('</html>'))
-
     def test_uses_template(self):
         response = self.client.get('/cv')
         self.assertTemplateUsed(response, 'cv_base.html')
+
+    def test_can_save_a_POST_request(self):
+        response = self.client.post('/cv', data={'ed_item_text': 'New education item'})
+        self.assertIn('New education item', response.content.decode())
+        self.assertTemplateUsed(response, 'cv_base.html')
+        self.assertIn('BSc Computer Science - Test university', [row.text for row in rows])
