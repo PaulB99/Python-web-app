@@ -15,10 +15,18 @@ class PageTest(TestCase):
         self.assertTemplateUsed(response, 'cv_base.html')
 
     def test_can_save_a_POST_request(self):
-        response = self.client.post('/cv', data={'ed_item_text': 'New education item'})
+        response = self.client.post('/', data={'ed_item_text': 'New education item'})
+
+        self.assertEqual(Qualification.objects.count(), 1)  
+        new_ed_item = Item.objects.first()  
+        self.assertEqual(new_ed_item.text, 'New education item')  
+
         self.assertIn('New education item', response.content.decode())
         self.assertTemplateUsed(response, 'cv_base.html')
-        self.assertIn('BSc Computer Science - Test university', [row.text for row in rows])
+
+    def test_only_saves_items_when_necessary(self):
+        self.client.get('/')
+        self.assertEqual(Qualification.objects.count(), 0)
 
 class ItemModelTest(TestCase):
 
