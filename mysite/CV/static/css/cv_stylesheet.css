@@ -27,6 +27,14 @@ h1, h2, h3, h4 {
     margin-right: 20px;
     }
 .edu {
-    color: tomato
+    color: tomato;
 }
-    
+.ski {
+    color: aqua;
+}
+.exp {
+    color : lawngreen;
+}
+.body {
+    padding-left: 20px;
+}
