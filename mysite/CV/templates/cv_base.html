@@ -34,9 +34,11 @@
                 <input name="ed_item_text" id="id_new_ed_item" placeholder="New education item" />
                 {% csrf_token %}
             </form>
-            <table id="ed_list_table">
-                <tr><td>{{ new_ed_item_text }}</td></tr>
-                ​</table>
+            <table id="CV_qualification">
+                {% for qual in quals %}
+                    <tr><td>{{ qual.text }}</td></tr>
+                {% endfor %}
+            </table>
 
             <div>
                     Experience

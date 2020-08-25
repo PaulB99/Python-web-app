@@ -15,18 +15,27 @@ class PageTest(TestCase):
         self.assertTemplateUsed(response, 'cv_base.html')
 
     def test_can_save_a_POST_request(self):
-        response = self.client.post('/', data={'ed_item_text': 'New education item'})
+        response = self.client.post('/cv', data={'ed_item_text': 'A new list item'})
 
-        self.assertEqual(Qualification.objects.count(), 1)  
-        new_ed_item = Item.objects.first()  
-        self.assertEqual(new_ed_item.text, 'New education item')  
+        self.assertEqual(Qualification.objects.count(), 1)
+        new_qual = Qualification.objects.first()
+        self.assertEqual(new_qual.text, 'A new list item')
 
-        self.assertIn('New education item', response.content.decode())
-        self.assertTemplateUsed(response, 'cv_base.html')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['location'], '/cv')
 
     def test_only_saves_items_when_necessary(self):
         self.client.get('/')
         self.assertEqual(Qualification.objects.count(), 0)
+
+    def test_displays_all_list_items(self):
+        Qualification.objects.create(text='itemey 1')
+        Qualification.objects.create(text='itemey 2')
+
+        response = self.client.get('/cv')
+
+        self.assertIn('itemey 1', response.content.decode())
+        self.assertIn('itemey 2', response.content.decode())
 
 class ItemModelTest(TestCase):
 
@@ -46,3 +55,4 @@ class ItemModelTest(TestCase):
         second_saved_item = saved_items[1]
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
         self.assertEqual(second_saved_item.text, 'Item the second')
+

@@ -14,7 +14,7 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
 
     def check_for_row_in_list_table(self, row_text):
-        table = self.browser.find_element_by_id('ed_list_table')
+        table = self.browser.find_element_by_id('CV_qualification')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text, [row.text for row in rows])
 
@@ -41,7 +41,7 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys(Keys.ENTER)  
         time.sleep(1)  
 
-        table = self.browser.find_element_by_id("ed_list_table")
+        table = self.browser.find_element_by_id("CV_qualification")
         rows = table.find_elements_by_tag_name('tr')  
         
         # Add second item
