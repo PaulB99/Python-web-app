@@ -25,7 +25,7 @@ class PageTest(TestCase):
         self.assertEqual(response['location'], '/cv')
 
     def test_only_saves_items_when_necessary(self):
-        self.client.get('/')
+        self.client.get('/cv')
         self.assertEqual(Qualification.objects.count(), 0)
 
     def test_displays_all_list_items(self):

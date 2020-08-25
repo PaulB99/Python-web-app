@@ -56,7 +56,16 @@
             <div>
                 Skills
             </div>
-            
+            <form method="POSTsk">
+                <input name="sk_item_text" id="id_new_sk_item" placeholder="New skill item" />
+                {% csrf_token %}
+            </form>
+            <table id="CV_skills">
+                {% for skill in skills %}
+                    <tr><td>{{ skill.text }}</td></tr>
+                {% endfor %}
+            </table>
+
             </body>            
     </body>
 </html>

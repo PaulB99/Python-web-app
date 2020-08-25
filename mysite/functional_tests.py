@@ -18,6 +18,11 @@ class NewVisitorTest(unittest.TestCase):
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text, [row.text for row in rows])
 
+    def check_for_row_in_ex_table(self, row_text):
+        table = self.browser.find_element_by_id('CV_experience')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(row_text, [row.text for row in rows])
+
     def test_can_start_a_list_and_retrieve_it_later(self):
         # I log onto the cv section of my website
         self.browser.get('http://localhost:8000/cv')
@@ -54,8 +59,16 @@ class NewVisitorTest(unittest.TestCase):
         self.check_for_row_in_list_table('BSc Computer Science - Test university')
         self.check_for_row_in_list_table('A levels - Test college')
 
-        # The page updates again, and now shows both items on her list
-        [...]
+        # I add my work experience 
+        table = self.browser.find_element_by_id("CV_experience")
+        rows = table.find_elements_by_tag_name('tr')  
+        
+        inputbox = self.browser.find_element_by_id("id_new_ex_item")
+        inputbox.send_keys('Job - Test Ltd')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+
+        self.check_for_row_in_ex_table('Job - Test Ltd')
 
 # Checks if it's run from command line
 if __name__ == '__main__':  
