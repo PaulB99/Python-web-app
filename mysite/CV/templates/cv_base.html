@@ -28,7 +28,7 @@
             </div>
 
             <div>
-                Education
+                <h2>Education</h2>
             </div>
             <form method="POST">
                 <input name="ed_item_text" id="id_new_ed_item" placeholder="New education item" />
@@ -41,7 +41,7 @@
             </table>
 
             <div>
-                    Experience
+                    <h2>Experience</h2>
             </div>
             <form method="POSTex">
                 <input name="ex_item_text" id="id_new_ex_item" placeholder="New experience item" />
@@ -54,13 +54,13 @@
             </table>
 
             <div>
-                Skills
+                <h2>Skills</h2>
             </div>
             <form method="POSTsk">
                 <input name="sk_item_text" id="id_new_sk_item" placeholder="New skill item" />
                 {% csrf_token %}
             </form>
-            <table id="CV_skills">
+            <table id="CV_skill">
                 {% for skill in skills %}
                     <tr><td>{{ skill.text }}</td></tr>
                 {% endfor %}

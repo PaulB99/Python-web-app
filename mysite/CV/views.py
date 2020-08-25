@@ -21,5 +21,9 @@ def cv_page(request):
     exps = Experience.objects.all()
 
     quals = Qualification.objects.all()
-    return render(request, 'cv_base.html', {'quals' : quals}, {'exps' : exps}, {'skills' : skills})
+
+    skills = Skill.objects.all()
+    return render(request, 'cv_base.html', {'quals' : quals})
+
+    # , {'exps' : exps}, {'skills' : skills} this wants to go into render once I work out how
 
