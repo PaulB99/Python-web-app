@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from CV.models import Qualification
+from CV.models import Qualification, Experience
 
 # Create your views here.
 
@@ -10,5 +10,12 @@ def cv_page(request):
         Qualification.objects.create(text=request.POST['ed_item_text'])
         return redirect('/cv')
 
+    if request.method == 'POSTex':
+        Experience.objects.create(text=request.POSTex['ex_item_text'])
+        return redirect('/cv')
+
+    exps = Experience.objects.all()
+
     quals = Qualification.objects.all()
-    return render(request, 'cv_base.html', {'quals' : quals})
+    return render(request, 'cv_base.html', {'quals' : quals}, {'exps' : exps})
+

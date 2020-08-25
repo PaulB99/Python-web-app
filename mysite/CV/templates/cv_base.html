@@ -43,6 +43,15 @@
             <div>
                     Experience
             </div>
+            <form method="POSTex">
+                <input name="ex_item_text" id="id_new_ex_item" placeholder="New experience item" />
+                {% csrf_token %}
+            </form>
+            <table id="CV_experience">
+                {% for exp in exps %}
+                    <tr><td>{{ exp.text }}</td></tr>
+                {% endfor %}
+            </table>
 
             <div>
                 Skills

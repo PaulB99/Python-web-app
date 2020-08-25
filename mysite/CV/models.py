@@ -4,3 +4,6 @@ from django.db import models
 
 class Qualification(models.Model):
     text = models.TextField(default='')
+
+class Experience(models.Model):
+    text = models.TextField(default='')
