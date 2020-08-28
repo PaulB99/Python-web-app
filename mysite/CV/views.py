@@ -7,15 +7,12 @@ from CV.models import Qualification, Experience, Skill
 
 def cv_page(request):
     if request.method == 'POST':
-        Qualification.objects.create(text=request.POST['ed_item_text'])
-        return redirect('/cv')
-
-    if request.method == 'POSTex':
-        Experience.objects.create(text=request.POSTex['ex_item_text'])
-        return redirect('/cv')
-
-    if request.method == 'POSTsk':
-        Skill.objects.create(text=request.POSTsk['sk_item_text'])
+        if(not(request.POST.get('ed_item_text') is None)):
+            Qualification.objects.create(text=request.POST['ed_item_text'])
+        if(not(request.POST.get('ex_item_text') is None)):
+            Experience.objects.create(text=request.POST['ex_item_text'])
+        if(not(request.POST.get('sk_item_text') is None)):
+            Skill.objects.create(text=request.POST['sk_item_text'])
         return redirect('/cv')
 
     exps = Experience.objects.all()
@@ -23,7 +20,14 @@ def cv_page(request):
     quals = Qualification.objects.all()
 
     skills = Skill.objects.all()
-    return render(request, 'cv_base.html', {'quals' : quals})
+
+    context = {
+        'quals' : quals,
+        'exps' : exps,
+        'skills' : skills,
+
+    }
+    return render(request, 'cv_base.html', context)
 
     # , {'exps' : exps}, {'skills' : skills} this wants to go into render once I work out how
 

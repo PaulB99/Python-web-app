@@ -43,7 +43,7 @@
             <div>
                     <h2><exp>Experience</exp></h2>
             </div>
-            <form method="POSTex">
+            <form method="POST">
                 <input name="ex_item_text" id="id_new_ex_item" placeholder="New experience item" />
                 {% csrf_token %}
             </form>
@@ -56,7 +56,7 @@
             <div>
                 <h2><ski>Skills</ski></h2>
             </div>
-            <form method="POSTsk">
+            <form method="POST">
                 <input name="sk_item_text" id="id_new_sk_item" placeholder="New skill item" />
                 {% csrf_token %}
             </form>
