@@ -42,10 +42,12 @@ class ItemModelTest(TestCase):
     def test_saving_and_retrieving_items(self):
         first_item = Qualification()
         first_item.text = 'The first (ever) list item'
+        first_item.date = 'July 2020'
         first_item.save()
 
         second_item = Qualification()
         second_item.text = 'Item the second'
+        first_item.date = 'August 2020'
         second_item.save()
 
         saved_items = Qualification.objects.all()
@@ -54,5 +56,7 @@ class ItemModelTest(TestCase):
         first_saved_item = saved_items[0]
         second_saved_item = saved_items[1]
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
+        self.assertEqual(first_saved_item.text, 'July 2020')
         self.assertEqual(second_saved_item.text, 'Item the second')
+        self.assertEqual(second_saved_item.text, 'August 2020')
 

@@ -8,7 +8,9 @@ from CV.models import Qualification, Experience, Skill
 def cv_page(request):
     if request.method == 'POST':
         if(not(request.POST.get('ed_item_text') is None)):
-            Qualification.objects.create(text=request.POST['ed_item_text'])
+            x=request.POST['ed_item_text']
+            xlist = x.split('*', 1)
+            Qualification.objects.create(text=xlist[0], date=xlist[1])
         if(not(request.POST.get('ex_item_text') is None)):
             Experience.objects.create(text=request.POST['ex_item_text'])
         if(not(request.POST.get('sk_item_text') is None)):

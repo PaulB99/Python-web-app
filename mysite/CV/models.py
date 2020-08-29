@@ -4,10 +4,10 @@ from django.db import models
 
 class Qualification(models.Model):
     text = models.TextField(default='')
+    date = models.TextField(default='')
 
 class Experience(models.Model):
     text = models.TextField(default='')
 
 class Skill(models.Model):
     text = models.TextField(default='')
-

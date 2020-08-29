@@ -40,7 +40,7 @@ class NewVisitorTest(unittest.TestCase):
         )
 
         # I add a new qualification
-        inputbox.send_keys('BSc Computer Science - Test university')  
+        inputbox.send_keys('BSc Computer Science - Test university * July 2020')  
 
         # The qualification is added
         inputbox.send_keys(Keys.ENTER)  
