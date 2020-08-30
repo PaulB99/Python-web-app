@@ -51,20 +51,20 @@ class NewVisitorTest(unittest.TestCase):
         
         # Add second item
         inputbox = self.browser.find_element_by_id("id_new_ed_item")
-        inputbox.send_keys('A levels - Test college')
+        inputbox.send_keys('A levels - Test college * July 2020')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
         # Check qualifications
         self.check_for_row_in_list_table('BSc Computer Science - Test university')
-        self.check_for_row_in_list_table('A levels - Test college')
+        self.check_for_row_in_list_table('A levels - Test college * July 2017')
 
         # I add my work experience 
         table = self.browser.find_element_by_id("CV_experience")
         rows = table.find_elements_by_tag_name('tr')  
         
         inputbox = self.browser.find_element_by_id("id_new_ex_item")
-        inputbox.send_keys('Job - Test Ltd')
+        inputbox.send_keys('Job - Test Ltd * July 2016')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 

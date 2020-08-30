@@ -12,9 +12,13 @@ def cv_page(request):
             xlist = x.split('*', 1)
             Qualification.objects.create(text=xlist[0], date=xlist[1])
         if(not(request.POST.get('ex_item_text') is None)):
-            Experience.objects.create(text=request.POST['ex_item_text'])
+            x=request.POST['ex_item_text']
+            xlist = x.split('*', 1)
+            Experience.objects.create(text=xlist[0], date=xlist[1])
         if(not(request.POST.get('sk_item_text') is None)):
-            Skill.objects.create(text=request.POST['sk_item_text'])
+            x=request.POST['sk_item_text']
+            xlist = x.split('*', 1)
+            Skill.objects.create(text=xlist[0], date=xlist[1])
         return redirect('/cv')
 
     exps = Experience.objects.all()
@@ -31,5 +35,4 @@ def cv_page(request):
     }
     return render(request, 'cv_base.html', context)
 
-    # , {'exps' : exps}, {'skills' : skills} this wants to go into render once I work out how
 

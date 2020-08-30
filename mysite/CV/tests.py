@@ -56,7 +56,7 @@ class ItemModelTest(TestCase):
         first_saved_item = saved_items[0]
         second_saved_item = saved_items[1]
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
-        self.assertEqual(first_saved_item.text, 'July 2020')
+        self.assertEqual(first_saved_item.date, 'July 2020')
         self.assertEqual(second_saved_item.text, 'Item the second')
-        self.assertEqual(second_saved_item.text, 'August 2020')
+        self.assertEqual(second_saved_item.date, 'August 2020')
 

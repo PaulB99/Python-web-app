@@ -8,6 +8,8 @@ class Qualification(models.Model):
 
 class Experience(models.Model):
     text = models.TextField(default='')
+    date = models.TextField(default='')
 
 class Skill(models.Model):
     text = models.TextField(default='')
+    date = models.TextField(default='')
