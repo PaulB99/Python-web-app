@@ -12,4 +12,3 @@ class Experience(models.Model):
 
 class Skill(models.Model):
     text = models.TextField(default='')
-    date = models.TextField(default='')

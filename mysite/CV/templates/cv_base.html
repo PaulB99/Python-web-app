@@ -4,6 +4,7 @@
         <title>My CV</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <script src="https://kit.fontawesome.com/14baf41382.js" crossorigin="anonymous"></script>
         <!--<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
         <link rel="stylesheet" href="{% static 'css/cv_stylesheet.css' %}">
 
@@ -23,6 +24,8 @@
                 </b></h3>
             </div>
 
+            <i class="fab fa-github" style="font-size:32px"></i>
+            <i class="fab fa-linkedin" style="font-size:32px"></i>
             <div>
                 paulbyrne99@rocketmail.com
             </div>
@@ -50,7 +53,8 @@
             </form>
             <table id="CV_experience">
                 {% for exp in exps %}
-                    <tr><td>{{ exp.text }}</td></tr>
+                <tr><td style="font-size:18px">{{ exp.text }}</td></tr>
+                <tr><td style="font-size:15px">{{ exp.date }}</td></tr>
                 {% endfor %}
             </table>
 
@@ -63,7 +67,7 @@
             </form>
             <table id="CV_skill">
                 {% for skill in skills %}
-                    <tr><td>{{ skill.text }}</td></tr>
+                    <tr><td style="font-size:18px">{{ skill.text }}</td></tr>
                 {% endfor %}
             </table>
 

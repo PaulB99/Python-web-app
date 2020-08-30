@@ -397,3 +397,17 @@ JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 208: Error: 
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: (msgtype=0x5E0005,name=PImageBridge::Msg_WillClose) Channel error: cannot send/recv
 
+1598826994435	geckodriver	INFO	Listening on 127.0.0.1:56385
+1598826997545	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\paulb\\AppData\\Local\\Temp\\rust_mozprofileHpS0ek"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598827003154	Marionette	INFO	Listening on port 56393
+1598827003415	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 208: Error: Invalid autocomplete selectedIndex
+1598827007019	Marionette	INFO	Stopped listening on port 56393
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

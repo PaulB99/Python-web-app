@@ -17,8 +17,7 @@ def cv_page(request):
             Experience.objects.create(text=xlist[0], date=xlist[1])
         if(not(request.POST.get('sk_item_text') is None)):
             x=request.POST['sk_item_text']
-            xlist = x.split('*', 1)
-            Skill.objects.create(text=xlist[0], date=xlist[1])
+            Skill.objects.create(text=x)
         return redirect('/cv')
 
     exps = Experience.objects.all()
