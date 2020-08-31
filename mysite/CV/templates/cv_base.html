@@ -13,9 +13,6 @@
         <body>
             <div class="page-header">
                 <h1><a href="/cv">My CV</a><a href="/" style = "font-size:28px;">&nbsp;&nbsp;&nbsp;My Blog</a></h1>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                {% endif %}
             </div>
             
             <div class= "title">
