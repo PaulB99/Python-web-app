@@ -29,17 +29,19 @@
                     paulbyrne99@rocketmail.com
                 </h4>
             </div>
-            
+
             <a href="https://github.com/PaulB99"> <i class="fab fa-github" style="font-size:32px"></i></a> &nbsp;&nbsp;
             <a href="https://www.linkedin.com/in/paulbyrne99"> <i class="fab fa-linkedin" style="font-size:32px"></i></a>
 
             <div>
                 <h2 style = "color:indigo;">Education</h2>
             </div>
+            {% if user.is_authenticated %}
             <form method="POST">
                 <input name="ed_item_text" id="id_new_ed_item" placeholder="New education item" />
                 {% csrf_token %}
             </form>
+            {endif}
             <table id="CV_qualification">
                 {% for qual in quals %}
                     <tr><td style="font-size:18px">{{ qual.text }}</td></tr>
@@ -50,10 +52,12 @@
             <div>
                 <h2 style = "color:purple;">Experience</h2>
             </div>
+            {% if user.is_authenticated %}
             <form method="POST">
                 <input name="ex_item_text" id="id_new_ex_item" placeholder="New experience item" />
                 {% csrf_token %}
             </form>
+            {endif}
             <table id="CV_experience">
                 {% for exp in exps %}
                 <tr><td style="font-size:18px">{{ exp.text }}</td></tr>
@@ -64,10 +68,12 @@
             <div>
                 <h2 style = "color:darkorchid;">Skills</h2>
             </div>
+            {% if user.is_authenticated %}
             <form method="POST">
                 <input name="sk_item_text" id="id_new_sk_item" placeholder="New skill item" />
                 {% csrf_token %}
             </form>
+            {endif}
             <table id="CV_skill">
                 {% for skill in skills %}
                     <tr><td style="font-size:18px">{{ skill.text }}</td></tr>
